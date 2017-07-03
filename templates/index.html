@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+{#    <style>#}
+{#        img{ width: 40%; height: 40%;}#}
+{#        *{ line-height: 22px;word-wrap:break-word}#}
+{#        p{margin: 0px 0}#}
+{#    </style>#}
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for s in art %}
+            title: {{ s.article_title }}
+            <br>
+            link: {{ s.article_link }}
+            <br>
+            <span>{{ s.article_content | safe}}</span>
+            <br>
+            {{ '===================================' }}
+            <br>
+
+        {% endfor %}
+{#        <input type="submit" value="发送消息">#}
+    </form>
+
+
+
+
+</body>
+</html>
